@@ -78,16 +78,11 @@ export async function POST(req: Request) {
  }
 
  if(eventType === "user.deleted") {
- const deletedUser = await db.user.delete({
+ await db.user.delete({
     where: {
       externalUserId:payload.data.id
     }
   })
-  if(!deletedUser) {
-    return new Response("User not found", {status:404})
-  }
-  return new Response("Account Deleted successfully", {status:204})
  }
- console.log("user id is ", body);
  return new Response("", { status: 200 });
 }
