@@ -1,5 +1,5 @@
 import { ReactNode } from "react"
-import { Logo } from "../(browse)/_components/logo"
+import { Logo } from "../(browse)/_components/navbar/logo"
 
 const AuthLayout = ({ children }
   : {
