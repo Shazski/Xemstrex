@@ -1,10 +1,17 @@
 import { Wrapper } from "./wrapper"
 import { Toggle } from "./toggle"
+import { Recommended } from "./recommended"
 
-export const Sidebar = () => {
+import { getRecommended } from "@/lib/recomended-service"
+
+export const Sidebar = async () => {
+  const recommended = await getRecommended();
   return (
-      <Wrapper>
-        <Toggle />
-      </Wrapper>
+    <Wrapper>
+      <Toggle />
+      <div className="space-y-4 pt-4 lg:pt-0">
+        <Recommended data={recommended}/>
+      </div>
+    </Wrapper>
   )
 }
