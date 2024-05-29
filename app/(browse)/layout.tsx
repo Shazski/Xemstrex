@@ -10,9 +10,9 @@ const BrowseLayout = ({ children }: { children: ReactNode }) => {
         <Suspense fallback={<SidebarSkelton />}>
           <Sidebar />
         </Suspense>
-          <Container>
-            {children}
-          </Container>
+        <Container>
+          {children}
+        </Container>
       </div>
     </>
   )
