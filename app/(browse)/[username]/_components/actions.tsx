@@ -17,12 +17,16 @@ export const Actions = ({ isFollowing, userId }: ActionsProps) => {
 
   const handleFollow = () => {
     startTransition(() => {
-      onFollow(userId).then((data) => toast.success(`Your are now following ${data.following.username}`)).catch(() => toast.error("Follow Failed"));
+      onFollow(userId)
+      .then((data) => toast.success(`Your are now following ${data.following.username}`))
+      .catch(() => toast.error("Follow Failed"));
     })
   }
   const handleUnfollow = () => {
     startTransition(() => {
-      onUnfollow(userId).then((data) => toast.success(`Your have unfollowed ${data.following.username}`)).catch(() => toast.error("Follow Failed"));
+      onUnfollow(userId)
+      .then((data) => toast.success(`Your have unfollowed ${data.following.username}`))
+      .catch(() => toast.error("Follow Failed"));
     })
   }
 
