@@ -14,20 +14,20 @@ export const onBlock = async (id: string) => {
   }
   return blockedUser;
  } catch (error) {
-  throw new Error("Interval error")
+  throw new Error("Internal error");
  }
 };
 
-export const onUnblock = async (id :string) => {
-  try {
-    const unblockedUser = await unBlockUser(id)
-  revalidatePath('/')
+export const onUnblock = async (id: string) => {
+ try {
+  const unblockedUser = await unBlockUser(id);
+  revalidatePath("/");
 
-  if(unblockedUser) {
-    revalidatePath(`/${unblockedUser.blocked.username}`);
+  if (unblockedUser) {
+   revalidatePath(`/${unblockedUser.blocked.username}`);
   }
-  return unblockedUser
-  } catch (error) {
-    throw new Error("Internal error")
-  }
-} 
+  return unblockedUser;
+ } catch (error) {
+  throw new Error("Internal error");
+ }
+};
