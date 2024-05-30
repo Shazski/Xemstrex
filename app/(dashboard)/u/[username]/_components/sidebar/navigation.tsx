@@ -4,7 +4,8 @@
 import { useUser } from "@clerk/nextjs"
 import { Fullscreen, KeyRound, MessageSquare, Users } from "lucide-react"
 import { usePathname } from "next/navigation"
-import { NavItem } from "./nav-item"
+import { NavItem, NavItemSkeleton } from "./nav-item"
+
 
 export const Navigation = () => {
   const pathName = usePathname()
@@ -32,13 +33,30 @@ export const Navigation = () => {
       icon: Users
     }
   ]
+
+  if (!user?.username) {
+    return (
+      <ul className="space-y-2">
+        {Array(4).fill(null).map((_, i) => (
+          <NavItemSkeleton key={i} />
+        ))}
+      </ul>
+    )
+  }
   return (
     <ul className="space-y-4 px-2 pt-4 lg:pt-0">
       {
-        routes.map((route) => (
-          <NavItem key={route.href} label={route.label} icon={route.icon} href={route.href} isActive={pathName === route.href} />
+        routes.map((route) =>
+        (
+          <NavItem key={route.href}
+            label={route.label}
+            icon={route.icon}
+            href={route.href}
+            isActive={pathName === route.href}
+          />
         ))
       }
     </ul>
   )
 }
+

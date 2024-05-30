@@ -21,7 +21,7 @@ export const Toggle = () => {
           <div className="w-full hidden lg:flex items-center justify-center pt-4 mb-4">
             <Hint label={label} side="right" asChild>
               <Button onClick={onExpand} variant="ghost" className="h-auto p-2">
-                <ArrowRightFromLine className="h-4 w-4"/>
+                <ArrowRightFromLine className="h-4 w-4" />
               </Button>
             </Hint>
           </div>
